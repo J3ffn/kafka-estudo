@@ -4,6 +4,7 @@ import io.j3ffn.paymentservice.model.Payment;
 import io.j3ffn.paymentservice.resource.PaymentResource;
 import io.j3ffn.paymentservice.services.PaymentService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ public class PaymentResourceImpl implements PaymentResource {
 
     private final PaymentService paymentService;
 
+    @SneakyThrows
     @PostMapping
     public ResponseEntity<Payment> payment(Payment payment) {
         paymentService.sendPayment(payment);
